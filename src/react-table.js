@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 import App from './app'
 
 class ReactTable extends HTMLElement {
-  connectedCallback() {
+  constructor() {
+    super()
     const id = this.id
     const mountPoint = document.createElement('div')
     this.attachShadow({ mode: 'open' }).appendChild(mountPoint)
