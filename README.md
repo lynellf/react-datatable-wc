@@ -1,5 +1,5 @@
-# react-datatable-wc
-React Datatable as a Web Component
+# react-table-wc
+React Table as a Web Component
 
 ## Attaching React Hooks to Web Components
 
