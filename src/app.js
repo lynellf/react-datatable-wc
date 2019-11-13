@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import ReactTable from 'react-table'
+import Loading from './loading'
 
 /**
  * @param {string} id
@@ -23,18 +25,24 @@ function getParentWebComponent(id) {
 function attachCallbackToParent(cb, id) {
   const parentComponent = getParentWebComponent(id)
   parentComponent['setState'] = cb
+  parentComponent['state'] = { data: [], columns: [] }
 }
 
 /**
- * @param {{ id: string }} props
+ * @param {{ id: string; config: {[key: string]: any} }} props
  */
-export default function App({ id }) {
-  const [state, setState] = useState({ greeting: 'Hello World!' })
+export default function App({ id, config }) {
+  const [state, setState] = useState(config)
 
   useEffect(() => {
     attachCallbackToParent(setState, id)
   }, [id, setState])
 
-  const { greeting } = state
-  return <span>{greeting}</span>
+  const { isLoading } = state
+  
+  if (isLoading) {
+    return <Loading />
+  }
+
+  return <ReactTable {...state} />
 }
