@@ -1,15 +1,31 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './app'
-
 class ReactTable extends HTMLElement {
   constructor() {
     super()
-    const id = this.id
-    const mountPoint = document.createElement('div')
-    this.attachShadow({ mode: 'open' }).appendChild(mountPoint)
+    const incomingConfig = this.config
+    this.config = incomingConfig || { columns: [], data: [], isLoading: true }
+    this.createElements()
+    this.renderTable()
+    this.appendTable()
+  }
 
-    ReactDOM.render(<App id={id} />, mountPoint)
+  createElements() {
+    this.container = document.createElement('div')
+    this.entryPoint = document.createElement('div')
+    this.styleElement = document.createElement('style')
+    // this.shaodowDOM = this.attachShadow({ mode: 'closed' })
+  }
+
+  renderTable() {
+    const { config, entryPoint } = this
+    ReactDOM.render(<App id={this.id} config={config} />, entryPoint)
+  }
+
+  appendTable() {
+    const { styleElement, container,  entryPoint } = this
+    styleElement.textContent = Styles
+    container.appendChild(styleElement)
+    container.appendChild(entryPoint)
+    this.appendChild(container)
   }
 }
 
