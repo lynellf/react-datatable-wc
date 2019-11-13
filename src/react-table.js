@@ -1,3 +1,8 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Styles from './styles'
+import App from './app'
+
 class ReactTable extends HTMLElement {
   constructor() {
     super()
