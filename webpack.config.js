@@ -13,7 +13,6 @@ module.exports = {
     rules: [
       {
         test: /.jsx?$/,
-        // include: [/node_modules(?:\/|\\)lit-element|lit-html/],
         exclude: [path.resolve(__dirname, 'node_modules')],
         loader: 'babel-loader'
       }
