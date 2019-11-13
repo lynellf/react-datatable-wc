@@ -1,12 +1,21 @@
 {
-	"name": "lit-demo-component",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"dependencies": {
-		"lit-element": "^2.2.0"
-	},
-	"devDependencies": {
+  "name": "react-table-wc",
+  "version": "1.0.0",
+  "description": "React Table as a Web Component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --config webpack.config.dev.js",
+    "build": "webpack --config webpack.config.prod.js"
+  },
+  "author": "Ezell Frazier",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-table": "^6.10.3"
+  },
+  "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-transform-classes": "^7.5.5",
@@ -14,16 +23,14 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "babel-preset-es2017": "^6.24.1",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
     "style-loader": "^1.0.0",
-    "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.1"
-  },
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "npx webpack"
-	},
-	"author": "",
-	"license": "ISC"
+    "webpack-dev-server": "^3.8.1",
+    "webpack-merge": "^4.2.2",
+    "webpack": "^4.41.0"
+  }
 }
